@@ -17,9 +17,23 @@ h1{
     font-size: 40px;
     margin-bottom:8px ;
 }
-section{
+.smart-app{
+    width: 75%;
+    margin :10px auto;
+    padding: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login{
     background: #24353f;
-    box-shadow: 10px 5px 5px red;
+    color: white;
+    text-align: center;
+    flex-direction: column;
+    width: 70%;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
 }
 input{
     margin: 10px 0;
