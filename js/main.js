@@ -4,9 +4,9 @@ var userPassInput = document.getElementById("userPass");
 
 // console.log(userName,userEmail,userPass);
 // var users=[];
-var users;
+var users ;
 //there is no data stored 
-if(localStorage.getItem("usersList"==null)){
+if(localStorage.getItem("usersList")==null){
     var users=[];
 }
 else{
@@ -45,9 +45,8 @@ function checkIsEmpty(){
         return true;
     }
 }
-(function welcome(){
-    document.getElementById("welcome").innerHTML=`<h1 class='  text-info opacity-75'>Welcome ya 3m</h1>`;
-})();
+// (function welcome(){
+//     document.getElementById("welcome").innerHTML="<h1 class='text-info opacity-75'>Welcome ya 3m</h1>";})();
 function displayRequired(){
     document.getElementById("required").innerHTML=`<span class=' text-danger'>All inputs is required</span>`;
 };
