@@ -45,7 +45,7 @@ input{
     color: white;
 
 }
-button{
+.login a{
     margin: 20px 0;
     font-size: 16px !important;
   
@@ -64,4 +64,23 @@ a{
 a:hover{
     text-decoration-line: underline;
     color: white;
+}
+
+.logo a {
+    font-size: 20px;
+
+}
+.logo a:hover {
+    text-decoration-line: none;
+
+}
+
+.home {
+    height: 80%;
+}
+.toggler-icon{
+    color: #ffffff80;
+}
+.border-ffffff80{
+    border-color: #ffffff80;
 }
