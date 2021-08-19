@@ -3,7 +3,15 @@ var userEmailInput = document.getElementById("userEmail");
 var userPassInput = document.getElementById("userPass");
 
 // console.log(userName,userEmail,userPass);
-var users=[];
+// var users=[];
+var users;
+//there is no data stored 
+if(localStorage.getItem("usersList"==null)){
+    var users=[];
+}
+else{
+    users = JSON.parse(localStorage.getItem("usersList"));
+}
 function addUser(){
     if(!checkIsEmpty()){
         var user = {
@@ -12,6 +20,9 @@ function addUser(){
             password:userPassInput.value,
         }
         users.push(user);
+        localStorage.setItem("usersList",JSON.stringify(users));
+        displaySucess()
+        // clearForm();
     }
     else{
         displayRequired();
@@ -20,6 +31,12 @@ function addUser(){
    
 };
 
+function clearForm(){
+   userNameInput.value="";
+   userEmailInput.value="";
+   userPassInput.value="";
+//    console.log("Done ya m3lm");
+};
 function checkIsEmpty(){
     if(userNameInput.value!="" && userPassInput.value !="" && userEmailInput.value !=""){
         return false;
@@ -28,16 +45,13 @@ function checkIsEmpty(){
         return true;
     }
 }
+(function welcome(){
+    document.getElementById("welcome").innerHTML=`<h1 class='  text-info opacity-75'>Welcome ya 3m</h1>`;
+})();
 function displayRequired(){
-    document.getElementById("required").innerHTML="All inputs is required";
-    console.log("saba7 el 5ra")
-}
+    document.getElementById("required").innerHTML=`<span class=' text-danger'>All inputs is required</span>`;
+};
+function displaySucess(){
+    document.getElementById("required").innerHTML=`<span class=' text-success'>Success</span>`;
+};
 
-// function welcome(){
-//     var helloMessage=``;
-//     for(var i=0; i<users.length;i++){
-//         helloMessage +=`<h1>Welcome ${users[i].name} </h1>`;
-//     }
-//     document.getElementById("welcome").innerHTML=helloMessage;
-//     console.log("Done");
-// };
