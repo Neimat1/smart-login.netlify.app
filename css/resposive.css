@@ -1,7 +1,7 @@
 /* less than and = 576px  */
 @media screen and (max-width:575px){
     .smart-app{
-        width: 95%;
+        width: 95% !important;
     }
     .login{
         width: 90%;
