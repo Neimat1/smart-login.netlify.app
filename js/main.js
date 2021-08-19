@@ -1,9 +1,12 @@
+
 var userNameInput = document.getElementById("userName");
 var userEmailInput = document.getElementById("userEmail");
 var userPassInput = document.getElementById("userPass");
 
 var signEmailInput = document.getElementById("signEmail");
 var signPassInput = document.getElementById("signPass");
+
+localStorage.setItem("home",JSON.stringify("home.html"));
 
 // var users=[];
 var users ;
@@ -42,7 +45,7 @@ function addUser(){
 function exist(){
     for(var i=0;i<users.length;i++){
         if(users[i].email==userEmailInput.value ){
-           return true; 
+            return true; 
         }
     }
     return false;
@@ -55,14 +58,10 @@ function searchUser(){
     else{
         for(var i=0;i<users.length;i++){
             if(users[i].email==signEmailInput.value && users[i].password==signPassInput.value){
-               return true;
-                // location.href="../home.html";
-                // location.pathname="../home.html";
-                    // location.replace(baseURL + '/home.html');
-    
-                              console.log("3lam");
-                // welcome(users[i].name);
-                
+                console.log(users[i].name);
+                location.href=JSON.parse( localStorage.getItem("home"));
+               
+                console.log("3lam");
             }
             else{
                 displayIncorrect();
@@ -71,10 +70,6 @@ function searchUser(){
     }
 
 };
-// if(searchUser()==true){
-//     location.window="../home.html";
-// }
-
 function clearForm(){
    userNameInput.value="";
    userEmailInput.value="";
@@ -97,10 +92,7 @@ function checkIsEmptySign(){
         return false;
     }
 }
-(function welcome(){
-    
-    document.getElementById("welcome").innerHTML=`Welcome  `;
-})();
+
 // email already exists
 function displayRequired(){
     document.getElementById("required").innerHTML=`<span class=' text-danger'>All inputs is required</span>`;
