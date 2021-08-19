@@ -2,7 +2,9 @@ var userNameInput = document.getElementById("userName");
 var userEmailInput = document.getElementById("userEmail");
 var userPassInput = document.getElementById("userPass");
 
-// console.log(userName,userEmail,userPass);
+var signEmailInput = document.getElementById("signEmail");
+var signPassInput = document.getElementById("signPass");
+
 // var users=[];
 var users ;
 //there is no data stored 
@@ -30,6 +32,29 @@ function addUser(){
    
    
 };
+function searchUser(){
+    if(checkIsEmptySign()){
+        displayRequiredSign();
+        console.log("5raba 2nta");
+    }
+    else{
+        for(var i=0;i<users.length;i++){
+            if(users[i].email==signEmailInput.value && users[i].password==signPassInput.value){
+                location.href="../home.html";
+                location.pathname="../home.html";
+                    // location.replace(baseURL + '/home.html');
+    
+                              console.log("3lam");
+                // welcome(users[i].name);
+                
+            }
+            else{
+                displayIncorrect();
+            }
+        }
+    }
+
+};
 
 function clearForm(){
    userNameInput.value="";
@@ -45,12 +70,28 @@ function checkIsEmpty(){
         return true;
     }
 }
-// (function welcome(){
-//     document.getElementById("welcome").innerHTML="<h1 class='text-info opacity-75'>Welcome ya 3m</h1>";})();
+function checkIsEmptySign(){
+    if(signEmailInput.value =="" || signPassInput.value =="" ){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+function welcome(name){
+    window.location='../home.html';
+    document.getElementById("welcome").innerHTML=`Welcome ${name}`;
+}
 function displayRequired(){
     document.getElementById("required").innerHTML=`<span class=' text-danger'>All inputs is required</span>`;
+
+};
+function displayIncorrect(){
+    document.getElementById("result-sign").innerHTML=`<span class=' text-danger'>incorrect email or password</span>`;
+};
+function displayRequiredSign(){
+    document.getElementById("result-sign").innerHTML=`<span class=' text-danger'>All inputs is required</span>`;
 };
 function displaySucess(){
     document.getElementById("required").innerHTML=`<span class=' text-success'>Success</span>`;
 };
-
