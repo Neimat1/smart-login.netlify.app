@@ -16,15 +16,24 @@ else{
 }
 function addUser(){
     if(!checkIsEmpty()){
+        for(var i=0;i<users.length;i++){
+            if(users[i].email==userEmailInput.value ){
+                displayExist(); 
+            }
+        }
+        else{
         var user = {
             name:userNameInput.value,
             email:userEmailInput.value,
             password:userPassInput.value,
         }
+    
+
         users.push(user);
         localStorage.setItem("usersList",JSON.stringify(users));
         displaySucess()
-        // clearForm();
+        clearForm();
+        }
     }
     else{
         displayRequired();
@@ -82,8 +91,13 @@ function welcome(name){
     window.location='../home.html';
     document.getElementById("welcome").innerHTML=`Welcome ${name}`;
 }
+// email already exists
 function displayRequired(){
     document.getElementById("required").innerHTML=`<span class=' text-danger'>All inputs is required</span>`;
+
+};
+function displayExist(){
+    document.getElementById("required").innerHTML=`<span class=' text-danger'>email already exists</span>`;
 
 };
 function displayIncorrect(){
