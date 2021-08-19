@@ -64,6 +64,7 @@ function searchUser(){
                 location.href=JSON.parse( localStorage.getItem("home"));
                 // clearLogin();
                 console.log("3lam");
+                break;
             }
             else{
                 displayIncorrect();
@@ -79,12 +80,7 @@ function clearForm(){
   
 //    console.log("Done ya m3lm");
 };
-function clearLogin(){
-   
-    signEmailInput.value="";
-    signPassInput.value="";
- //    console.log("Done ya m3lm");
- };
+
 function checkIsEmpty(){
     if(userNameInput.value!="" && userPassInput.value !="" && userEmailInput.value !=""){
         return false;
