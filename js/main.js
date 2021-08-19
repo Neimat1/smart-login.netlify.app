@@ -16,10 +16,8 @@ else{
 }
 function addUser(){
     if(!checkIsEmpty()){
-        for(var i=0;i<users.length;i++){
-            if(users[i].email==userEmailInput.value ){
-                displayExist(); 
-            }
+        if(exist()){
+            displayExist();
         }
         else{
         var user = {
@@ -27,13 +25,13 @@ function addUser(){
             email:userEmailInput.value,
             password:userPassInput.value,
         }
-    
-
+        
         users.push(user);
         localStorage.setItem("usersList",JSON.stringify(users));
         displaySucess()
         clearForm();
-        }
+    }
+        
     }
     else{
         displayRequired();
@@ -41,6 +39,14 @@ function addUser(){
    
    
 };
+function exist(){
+    for(var i=0;i<users.length;i++){
+        if(users[i].email==userEmailInput.value ){
+           return true; 
+        }
+    }
+    return false;
+}
 function searchUser(){
     if(checkIsEmptySign()){
         displayRequiredSign();
