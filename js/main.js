@@ -32,7 +32,7 @@ function addUser(){
         users.push(user);
         localStorage.setItem("usersList",JSON.stringify(users));
         displaySucess()
-        clearForm();
+        
     }
         
     }
@@ -59,8 +59,10 @@ function searchUser(){
         for(var i=0;i<users.length;i++){
             if(users[i].email==signEmailInput.value && users[i].password==signPassInput.value){
                 console.log(users[i].name);
+                // welcome();
+                // clearForm();
                 location.href=JSON.parse( localStorage.getItem("home"));
-               
+                // clearLogin();
                 console.log("3lam");
             }
             else{
@@ -74,8 +76,15 @@ function clearForm(){
    userNameInput.value="";
    userEmailInput.value="";
    userPassInput.value="";
+  
 //    console.log("Done ya m3lm");
 };
+function clearLogin(){
+   
+    signEmailInput.value="";
+    signPassInput.value="";
+ //    console.log("Done ya m3lm");
+ };
 function checkIsEmpty(){
     if(userNameInput.value!="" && userPassInput.value !="" && userEmailInput.value !=""){
         return false;
