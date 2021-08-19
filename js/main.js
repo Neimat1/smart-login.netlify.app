@@ -55,8 +55,9 @@ function searchUser(){
     else{
         for(var i=0;i<users.length;i++){
             if(users[i].email==signEmailInput.value && users[i].password==signPassInput.value){
-                location.href="../home.html";
-                location.pathname="../home.html";
+               return true;
+                // location.href="../home.html";
+                // location.pathname="../home.html";
                     // location.replace(baseURL + '/home.html');
     
                               console.log("3lam");
@@ -70,6 +71,9 @@ function searchUser(){
     }
 
 };
+// if(searchUser()==true){
+//     location.window="../home.html";
+// }
 
 function clearForm(){
    userNameInput.value="";
@@ -93,10 +97,10 @@ function checkIsEmptySign(){
         return false;
     }
 }
-function welcome(name){
-    window.location='../home.html';
-    document.getElementById("welcome").innerHTML=`Welcome ${name}`;
-}
+(function welcome(){
+    
+    document.getElementById("welcome").innerHTML=`Welcome  `;
+})();
 // email already exists
 function displayRequired(){
     document.getElementById("required").innerHTML=`<span class=' text-danger'>All inputs is required</span>`;
